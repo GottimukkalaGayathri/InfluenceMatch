@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns - InfluenceMatch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/campaigns.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="header"></header>
+
+    <main>
+        <section class="campaign-hero">
+            <div class="container">
+                <h1>Available Campaigns</h1>
+                <p>Discover and apply to exciting brand collaborations</p>
+            </div>
+        </section>
+
+        <section class="campaign-filters">
+            <div class="container">
+                <div class="filter-container">
+                    <div class="search-box">
+                        <input type="text" id="campaign-search" placeholder="Search campaigns...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label>Platform</label>
+                            <select id="platform-filter">
+                                <option value="all">All Platforms</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="twitter">Twitter</option>
+                                <option value="facebook">Facebook</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Category</label>
+                            <select id="category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="beauty">Beauty</option>
+                                <option value="lifestyle">Lifestyle</option>
+                                <option value="tech">Technology</option>
+                                <option value="fitness">Fitness</option>
+                                <option value="food">Food</option>
+                                <option value="travel">Travel</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Budget</label>
+                            <select id="budget-filter">
+                                <option value="all">Any Budget</option>
+                                <option value="under-500">Under $500</option>
+                                <option value="500-1000">$500 - $1,000</option>
+                                <option value="1000-5000">$1,000 - $5,000</option>
+                                <option value="5000-plus">$5,000+</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="campaigns-list">
+            <div class="container">
+                <div class="campaigns-grid" id="campaigns-container">
+                    <!-- Campaign cards will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <div id="campaign-detail-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="campaign-detail">
+                    <div class="campaign-header">
+                        <div class="brand-logo">
+                            <img id="modal-brand-logo" src="" alt="Brand Logo">
+                        </div>
+                        <div class="campaign-title-info">
+                            <h2 id="modal-campaign-title"></h2>
+                            <p id="modal-brand-name"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="campaign-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-tag"></i>
+                            <span id="modal-campaign-category"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-hashtag"></i>
+                            <span id="modal-campaign-platform"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span id="modal-campaign-budget"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span id="modal-campaign-duration"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="campaign-description">
+                        <h3>Campaign Description</h3>
+                        <p id="modal-campaign-description"></p>
+                    </div>
+                    
+                    <div class="campaign-requirements">
+                        <h3>Requirements</h3>
+                        <p id="modal-campaign-requirements"></p>
+                    </div>
+                    
+                    <div class="application-form">
+                        <h3>Apply for this Campaign</h3>
+                        <form id="campaign-application-form">
+                            <div class="form-group">
+                                <label for="application-message">Why are you a good fit for this campaign?</label>
+                                <textarea id="application-message" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="application-price">Your Proposed Rate</label>
+                                <input type="number" id="application-price" min="1" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/campaigns.js"></script>
+</body>
+</html>

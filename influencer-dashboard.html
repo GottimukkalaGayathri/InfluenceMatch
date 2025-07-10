@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer Dashboard - InfluenceMatch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/influencer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header id="header"></header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Influencer Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-target="profile"><i class="fas fa-user"></i> My Profile</li>
+                    <li data-target="campaign-invites"><i class="fas fa-envelope"></i> Campaign Invites</li>
+                    <li data-target="my-campaigns"><i class="fas fa-tasks"></i> My Campaigns</li>
+                    <li data-target="analytics"><i class="fas fa-chart-bar"></i> Analytics</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="dashboard-content">
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section active">
+                <h2>My Profile</h2>
+                
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-image">
+                            <img src="https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Profile Image">
+                            <button class="change-photo-btn"><i class="fas fa-camera"></i></button>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profile-name">Jane Doe</h3>
+                            <p id="profile-email">jane.doe@example.com</p>
+                            <div class="profile-stats">
+                                <div class="stat">
+                                    <span class="stat-value">15</span>
+                                    <span class="stat-label">Campaigns</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">4.8</span>
+                                    <span class="stat-label">Rating</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-content">
+                        <h3>Social Media Accounts</h3>
+                        <form id="social-media-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="instagram"><i class="fab fa-instagram"></i> Instagram</label>
+                                    <input type="text" id="instagram" placeholder="@username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="instagram-followers">Followers</label>
+                                    <input type="number" id="instagram-followers" placeholder="0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="facebook"><i class="fab fa-facebook"></i> Facebook</label>
+                                    <input type="text" id="facebook" placeholder="Username or Page">
+                                </div>
+                                <div class="form-group">
+                                    <label for="facebook-followers">Followers</label>
+                                    <input type="number" id="facebook-followers" placeholder="0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="twitter"><i class="fab fa-twitter"></i> Twitter</label>
+                                    <input type="text" id="twitter" placeholder="@username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="twitter-followers">Followers</label>
+                                    <input type="number" id="twitter-followers" placeholder="0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="youtube"><i class="fab fa-youtube"></i> YouTube</label>
+                                    <input type="text" id="youtube" placeholder="Channel name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="youtube-followers">Subscribers</label>
+                                    <input type="number" id="youtube-followers" placeholder="0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</label>
+                                    <input type="text" id="linkedin" placeholder="Profile URL">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin-followers">Connections</label>
+                                    <input type="number" id="linkedin-followers" placeholder="0">
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campaign Invites Section -->
+            <section id="campaign-invites" class="dashboard-section">
+                <h2>Campaign Invites</h2>
+                
+                <div class="invites-container" id="invites-list">
+                    <!-- Campaign invites will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- My Campaigns Section -->
+            <section id="my-campaigns" class="dashboard-section">
+                <h2>My Campaigns</h2>
+                
+                <div class="tab-controls">
+                    <button class="tab-btn active" data-target="active-campaigns">Active</button>
+                    <button class="tab-btn" data-target="completed-campaigns">Completed</button>
+                    <button class="tab-btn" data-target="pending-campaigns">Pending</button>
+                </div>
+                
+                <div id="active-campaigns" class="campaigns-grid active">
+                    <!-- Active campaigns will be loaded dynamically -->
+                </div>
+                
+                <div id="completed-campaigns" class="campaigns-grid">
+                    <!-- Completed campaigns will be loaded dynamically -->
+                </div>
+                
+                <div id="pending-campaigns" class="campaigns-grid">
+                    <!-- Pending campaigns will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="dashboard-section">
+                <h2>Performance Analytics</h2>
+                
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>Follower Growth</h3>
+                        <canvas id="followerGrowthChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <h3>Engagement Rate</h3>
+                        <canvas id="engagementChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card full-width">
+                    <h3>Campaign Performance</h3>
+                    <canvas id="campaignPerformanceChart"></canvas>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/influencer-dashboard.js"></script>
+</body>
+</html>

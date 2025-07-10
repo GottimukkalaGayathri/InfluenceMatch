@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - InfluenceMatch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header id="header"></header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-target="overview"><i class="fas fa-chart-line"></i> Overview</li>
+                    <li data-target="brand-requests"><i class="fas fa-building"></i> Brand Requests</li>
+                    <li data-target="user-management"><i class="fas fa-users"></i> User Management</li>
+                    <li data-target="campaigns"><i class="fas fa-bullhorn"></i> Campaigns</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="dashboard-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h2>Dashboard Overview</h2>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Users</h3>
+                            <p class="stat-value">1,254</p>
+                            <p class="stat-change positive">+12% <span>this month</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Influencers</h3>
+                            <p class="stat-value">843</p>
+                            <p class="stat-change positive">+8% <span>this month</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Brands</h3>
+                            <p class="stat-value">411</p>
+                            <p class="stat-change positive">+15% <span>this month</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Campaigns</h3>
+                            <p class="stat-value">78</p>
+                            <p class="stat-change positive">+5% <span>this month</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>User Growth</h3>
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <h3>Campaign Statistics</h3>
+                        <canvas id="campaignStatsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Brand Requests Section -->
+            <section id="brand-requests" class="dashboard-section">
+                <h2>Brand Access Requests</h2>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Brand Name</th>
+                                <th>Email</th>
+                                <th>Website</th>
+                                <th>Request Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="brand-requests-table">
+                            <!-- Data will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- User Management Section -->
+            <section id="user-management" class="dashboard-section">
+                <h2>User Management</h2>
+                
+                <div class="tab-controls">
+                    <button class="tab-btn active" data-target="influencers-table">Influencers</button>
+                    <button class="tab-btn" data-target="brands-table">Brands</button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="influencers-table" class="data-table active">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Social Platforms</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="influencers-table-body">
+                            <!-- Data will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                    
+                    <table id="brands-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Brand Name</th>
+                                <th>Email</th>
+                                <th>Website</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="brands-table-body">
+                            <!-- Data will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Campaigns Section -->
+            <section id="campaigns" class="dashboard-section">
+                <h2>Campaign Management</h2>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Campaign</th>
+                                <th>Brand</th>
+                                <th>Platform</th>
+                                <th>Status</th>
+                                <th>Applicants</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="campaigns-table-body">
+                            <!-- Data will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

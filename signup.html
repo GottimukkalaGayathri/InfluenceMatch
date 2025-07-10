@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - InfluenceMatch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="header"></header>
+
+    <main>
+        <section class="auth-container">
+            <div class="auth-card">
+                <h1>Create Your Account</h1>
+                <div class="tabs">
+                    <button class="tab-btn active" data-target="admin-form">Admin</button>
+                    <button class="tab-btn" data-target="influencer-form">Influencer</button>
+                    <button class="tab-btn" data-target="brand-form">Brand</button>
+                </div>
+
+                <!-- Admin Signup Form -->
+                <form id="admin-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="admin-name">Full Name</label>
+                        <input type="text" id="admin-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-email">Email</label>
+                        <input type="email" id="admin-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-passcode">Admin Passcode</label>
+                        <input type="password" id="admin-passcode" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+
+                <!-- Influencer Signup Form -->
+                <form id="influencer-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="influencer-name">Full Name</label>
+                        <input type="text" id="influencer-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="influencer-email">Email</label>
+                        <input type="email" id="influencer-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="influencer-password">Password</label>
+                        <input type="password" id="influencer-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="influencer-instagram">Instagram ID (optional)</label>
+                        <input type="text" id="influencer-instagram">
+                    </div>
+                    <div class="form-group">
+                        <label for="influencer-facebook">Facebook ID (optional)</label>
+                        <input type="text" id="influencer-facebook">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+
+                <!-- Brand Request Access Form -->
+                <form id="brand-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="brand-name">Brand Name</label>
+                        <input type="text" id="brand-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand-email">Business Email</label>
+                        <input type="email" id="brand-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand-website">Website</label>
+                        <input type="url" id="brand-website" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand-description">Brief Description</label>
+                        <textarea id="brand-description" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request Access</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

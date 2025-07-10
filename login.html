@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - InfluenceMatch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="header"></header>
+
+    <main>
+        <section class="auth-container">
+            <div class="auth-card">
+                <h1>Welcome Back</h1>
+                <div class="tabs">
+                    <button class="tab-btn active" data-target="admin-login">Admin</button>
+                    <button class="tab-btn" data-target="influencer-login">Influencer</button>
+                    <button class="tab-btn" data-target="brand-login">Brand</button>
+                </div>
+
+                <!-- Admin Login Form -->
+                <form id="admin-login" class="auth-form active">
+                    <div class="form-group">
+                        <label for="admin-email-login">Email</label>
+                        <input type="email" id="admin-email-login" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password-login">Password</label>
+                        <input type="password" id="admin-password-login" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="admin-remember">
+                        <label for="admin-remember">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <!-- Influencer Login Form -->
+                <form id="influencer-login" class="auth-form">
+                    <div class="form-group">
+                        <label for="influencer-email-login">Email</label>
+                        <input type="email" id="influencer-email-login" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="influencer-password-login">Password</label>
+                        <input type="password" id="influencer-password-login" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="influencer-remember">
+                        <label for="influencer-remember">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <!-- Brand Login Form -->
+                <form id="brand-login" class="auth-form">
+                    <div class="form-group">
+                        <label for="brand-email-login">Email</label>
+                        <input type="email" id="brand-email-login" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand-password-login">Password</label>
+                        <input type="password" id="brand-password-login" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="brand-remember">
+                        <label for="brand-remember">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

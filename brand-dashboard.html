@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Dashboard - InfluenceMatch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/brand.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header id="header"></header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Brand Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+    <ul>
+        <li class="active" data-target="find-influencers"><i class="fas fa-search"></i> Find Influencers</li>
+        <li data-target="my-campaigns"><i class="fas fa-bullhorn"></i> My Campaigns</li>
+        <li data-target="brand-applications"><i class="fas fa-envelope-open-text"></i> Applications</li>
+        <li data-target="analytics"><i class="fas fa-chart-line"></i> Analytics</li>
+        <li data-target="brand-profile"><i class="fas fa-building"></i> Brand Profile</li>
+    </ul>
+</nav>
+
+        </aside>
+
+<div class="dashboard-content">
+    <!-- Find Influencers Section -->
+    <section id="find-influencers" class="dashboard-section active">
+        <h2>Find Influencers</h2>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="influencer-search" placeholder="Search by name, niche, or platform...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label>Platform</label>
+                    <select id="platform-filter">
+                        <option value="all">All Platforms</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="facebook">Facebook</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Followers</label>
+                    <select id="followers-filter">
+                        <option value="all">Any Size</option>
+                        <option value="micro">Micro (1K-10K)</option>
+                        <option value="mid">Mid-tier (10K-100K)</option>
+                        <option value="macro">Macro (100K-1M)</option>
+                        <option value="mega">Mega (1M+)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="beauty">Beauty</option>
+                        <option value="lifestyle">Lifestyle</option>
+                        <option value="tech">Technology</option>
+                        <option value="fitness">Fitness</option>
+                        <option value="food">Food</option>
+                        <option value="travel">Travel</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Influencer Applications Section -->
+    <section id="brand-applications" class="dashboard-section">
+        <h2>Influencer Applications</h2>
+        <div id="applications-container" class="table-container">
+            <!-- Applications will be dynamically injected via JS -->
+        </div>
+    </section>
+</div>
+
+                <div class="influencers-grid" id="influencers-results">
+                    <!-- Influencers will be loaded dynamically -->
+                </div>
+                
+                <div id="influencer-details-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <div class="influencer-profile">
+                            <div class="influencer-header">
+                                <img id="modal-influencer-img" src="" alt="Influencer">
+                                <div>
+                                    <h3 id="modal-influencer-name"></h3>
+                                    <p id="modal-influencer-category"></p>
+                                </div>
+                            </div>
+                            
+                            <div class="social-platforms">
+                                <!-- Social platforms will be added dynamically -->
+                            </div>
+                            
+                            <div class="follower-history">
+                                <h4>Follower Growth</h4>
+                                <canvas id="followerHistoryChart"></canvas>
+                            </div>
+                            
+                            <div class="engagement-metrics">
+                                <div class="metric">
+                                    <span class="metric-value" id="avg-likes"></span>
+                                    <span class="metric-label">Avg. Likes</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value" id="avg-comments"></span>
+                                    <span class="metric-label">Avg. Comments</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value" id="engagement-rate"></span>
+                                    <span class="metric-label">Engagement Rate</span>
+                                </div>
+                            </div>
+                            
+                            <div class="action-buttons">
+                                <button class="btn btn-primary" id="invite-btn">Invite to Campaign</button>
+                                <button class="btn btn-secondary" id="save-btn">Save to List</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="invite-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Invite to Campaign</h3>
+                        <form id="invite-form">
+                            <div class="form-group">
+                                <label for="campaign-select">Select Campaign</label>
+                                <select id="campaign-select" required>
+                                    <!-- Campaigns will be loaded dynamically -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="invite-message">Personalized Message</label>
+                                <textarea id="invite-message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Invitation</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Campaigns Section -->
+            <section id="my-campaigns" class="dashboard-section">
+                <h2>My Campaigns</h2>
+                <button class="btn btn-primary create-campaign-btn">Create New Campaign</button>
+                
+                <div class="tab-controls">
+                    <button class="tab-btn active" data-target="active-campaigns">Active</button>
+                    <button class="tab-btn" data-target="draft-campaigns">Drafts</button>
+                    <button class="tab-btn" data-target="completed-campaigns">Completed</button>
+                </div>
+                
+                <div id="active-campaigns" class="campaigns-container active">
+                    <!-- Active campaigns will be loaded dynamically -->
+                </div>
+                
+                <div id="draft-campaigns" class="campaigns-container">
+                    <!-- Draft campaigns will be loaded dynamically -->
+                </div>
+                
+                <div id="completed-campaigns" class="campaigns-container">
+                    <!-- Completed campaigns will be loaded dynamically -->
+                </div>
+                
+                <div id="campaign-form-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Create New Campaign</h3>
+                        <form id="campaign-form">
+                            <div class="form-group">
+                                <label for="campaign-title">Campaign Title</label>
+                                <input type="text" id="campaign-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="campaign-description">Description</label>
+                                <textarea id="campaign-description" rows="4" required></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="campaign-platform">Platform</label>
+                                    <select id="campaign-platform" required>
+                                        <option value="instagram">Instagram</option>
+                                        <option value="youtube">YouTube</option>
+                                        <option value="tiktok">TikTok</option>
+                                        <option value="twitter">Twitter</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="multi">Multiple Platforms</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campaign-category">Category</label>
+                                    <select id="campaign-category" required>
+                                        <option value="fashion">Fashion</option>
+                                        <option value="beauty">Beauty</option>
+                                        <option value="lifestyle">Lifestyle</option>
+                                        <option value="tech">Technology</option>
+                                        <option value="fitness">Fitness</option>
+                                        <option value="food">Food</option>
+                                        <option value="travel">Travel</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="campaign-budget">Budget Range</label>
+                                    <select id="campaign-budget" required>
+                                        <option value="under-500">Under $500</option>
+                                        <option value="500-1000">$500 - $1,000</option>
+                                        <option value="1000-5000">$1,000 - $5,000</option>
+                                        <option value="5000-10000">$5,000 - $10,000</option>
+                                        <option value="over-10000">Over $10,000</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campaign-duration">Duration</label>
+                                    <select id="campaign-duration" required>
+                                        <option value="one-time">One-time Post</option>
+                                        <option value="week">1 Week</option>
+                                        <option value="month">1 Month</option>
+                                        <option value="quarter">3 Months</option>
+                                        <option value="ongoing">Ongoing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="campaign-requirements">Requirements</label>
+                                <textarea id="campaign-requirements" rows="4" required></textarea>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary">Create Campaign</button>
+                                <button type="button" class="btn btn-secondary" id="save-draft-btn">Save as Draft</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="dashboard-section">
+                <h2>Campaign Analytics</h2>
+                
+                <div class="analytics-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Campaigns</h3>
+                            <p class="stat-value">5</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Influencers</h3>
+                            <p class="stat-value">24</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Reach</h3>
+                            <p class="stat-value">2.4M</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Spent</h3>
+                            <p class="stat-value">$12,500</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>Campaign Performance</h3>
+                        <canvas id="campaignPerformanceChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <h3>ROI Analysis</h3>
+                        <canvas id="roiAnalysisChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card full-width">
+                    <h3>Audience Demographics</h3>
+                    <canvas id="demographicsChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Brand Profile Section -->
+            <section id="brand-profile" class="dashboard-section">
+                <h2>Brand Profile</h2>
+                
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-image">
+                            <img src="https://images.pexels.com/photos/6177645/pexels-photo-6177645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Brand Logo">
+                            <button class="change-photo-btn"><i class="fas fa-camera"></i></button>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="brand-name">Example Brand</h3>
+                            <p id="brand-website">www.examplebrand.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-content">
+                        <form id="brand-profile-form">
+                            <div class="form-group">
+                                <label for="brand-display-name">Brand Name</label>
+                                <input type="text" id="brand-display-name" value="Example Brand" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="brand-website-url">Website</label>
+                                <input type="url" id="brand-website-url" value="https://www.examplebrand.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="brand-description">About Your Brand</label>
+                                <textarea id="brand-description" rows="4" required>Example Brand is a premium lifestyle brand focused on sustainable products for modern consumers.</textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="brand-industry">Industry</label>
+                                <select id="brand-industry" required>
+                                    <option value="fashion">Fashion</option>
+                                    <option value="beauty">Beauty</option>
+                                    <option value="technology" selected>Technology</option>
+                                    <option value="food">Food & Beverage</option>
+                                    <option value="health">Health & Wellness</option>
+                                    <option value="home">Home & Lifestyle</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="brand-social-links">Social Media Links</label>
+                                <div class="social-links-container">
+                                    <div class="social-link-row">
+                                        <i class="fab fa-instagram"></i>
+                                        <input type="text" placeholder="Instagram URL">
+                                    </div>
+                                    <div class="social-link-row">
+                                        <i class="fab fa-facebook"></i>
+                                        <input type="text" placeholder="Facebook URL">
+                                    </div>
+                                    <div class="social-link-row">
+                                        <i class="fab fa-twitter"></i>
+                                        <input type="text" placeholder="Twitter URL">
+                                    </div>
+                                    <div class="social-link-row">
+                                        <i class="fab fa-linkedin"></i>
+                                        <input type="text" placeholder="LinkedIn URL">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/brand-dashboard.js"></script>
+</body>
+</html>

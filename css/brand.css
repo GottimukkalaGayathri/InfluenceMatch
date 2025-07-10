@@ -1,0 +1,445 @@
+/* Brand Dashboard Specific Styles */
+
+/* Find Influencers Section */
+.search-container {
+  margin-bottom: var(--spacing-6);
+}
+
+.search-box {
+  display: flex;
+  margin-bottom: var(--spacing-4);
+}
+
+.search-box input {
+  flex: 1;
+  padding: var(--spacing-3) var(--spacing-4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
+  font-size: var(--font-size-base);
+}
+
+.search-box button {
+  background-color: var(--primary-500);
+  color: white;
+  border: none;
+  padding: 0 var(--spacing-4);
+  border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+  cursor: pointer;
+}
+
+.filter-container {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.filter-group {
+  flex: 1;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.filter-group select {
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* Influencers Grid */
+.influencers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.influencer-card {
+  background-color: var(--bg-tertiary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  cursor: pointer;
+}
+
+.influencer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.influencer-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.influencer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.influencer-category {
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-xs);
+}
+
+.influencer-info {
+  padding: var(--spacing-3);
+}
+
+.influencer-info h3 {
+  margin-bottom: var(--spacing-1);
+  font-size: var(--font-size-lg);
+}
+
+.influencer-platforms {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}
+
+.platform-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full);
+  color: white;
+  font-size: var(--font-size-xs);
+}
+
+.platform-instagram {
+  background-color: #E1306C;
+}
+
+.platform-youtube {
+  background-color: #FF0000;
+}
+
+.platform-tiktok {
+  background-color: #000000;
+}
+
+.platform-twitter {
+  background-color: #1DA1F2;
+}
+
+.platform-facebook {
+  background-color: #1877F2;
+}
+
+.influencer-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-2);
+}
+
+.influencer-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+/* Influencer Details Modal */
+.influencer-profile {
+  padding: var(--spacing-3);
+}
+
+.influencer-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.influencer-header img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--border-radius-full);
+  object-fit: cover;
+}
+
+.social-platforms {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.social-platform {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  font-size: var(--font-size-sm);
+}
+
+.social-platform i {
+  font-size: var(--font-size-base);
+}
+
+.follower-history {
+  margin-bottom: var(--spacing-4);
+}
+
+.follower-history h4 {
+  margin-bottom: var(--spacing-3);
+}
+
+.engagement-metrics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-4);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.metric-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+/* My Campaigns Section */
+.create-campaign-btn {
+  margin-bottom: var(--spacing-4);
+}
+
+.campaigns-container {
+  display: none;
+}
+
+.campaigns-container.active {
+  display: block;
+}
+
+.campaign-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.campaign-card {
+  background-color: var(--bg-tertiary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.campaign-header {
+  padding: var(--spacing-4);
+  background: linear-gradient(135deg, var(--primary-700), var(--primary-900));
+  color: white;
+}
+
+.campaign-title {
+  margin-bottom: var(--spacing-1);
+  color: white;
+}
+
+.campaign-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.campaign-body {
+  padding: var(--spacing-4);
+}
+
+.campaign-description {
+  margin-bottom: var(--spacing-3);
+}
+
+.campaign-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-3);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.campaign-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-2);
+}
+
+/* Analytics Section */
+.analytics-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+}
+
+/* Brand Profile Section */
+.profile-container {
+  background-color: var(--bg-tertiary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.profile-header {
+  display: flex;
+  padding: var(--spacing-6);
+  gap: var(--spacing-6);
+  background: linear-gradient(135deg, var(--primary-700), var(--primary-900));
+  color: white;
+}
+
+.profile-image {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  border: 3px solid white;
+}
+
+.profile-content {
+  padding: var(--spacing-6);
+}
+
+.social-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.social-link-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.social-link-row i {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full);
+  color: white;
+  font-size: var(--font-size-base);
+}
+
+.social-link-row .fa-instagram {
+  background-color: #E1306C;
+}
+
+.social-link-row .fa-facebook {
+  background-color: #1877F2;
+}
+
+.social-link-row .fa-twitter {
+  background-color: #1DA1F2;
+}
+
+.social-link-row .fa-linkedin {
+  background-color: #0A66C2;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .analytics-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+  
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-4);
+  }
+}
+
+@media (max-width: 576px) {
+  .analytics-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .influencers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .campaign-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.custom-table th, .custom-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+}
+.custom-table th {
+  background-color: #f3f3f3;
+}
