@@ -68,23 +68,6 @@ npm start
 npm run dev
 ```
 
-### 5. Access the Application
-Open http://localhost:3000 in your browser
-
-## Test Accounts
-
-### Admin
-- Email: admin@influencematch.com
-- Password: admin123
-
-### Influencer
-- Email: influencer@test.com
-- Password: test123
-
-### Brand
-- Email: brand@test.com
-- Password: test123
-
 ## Project Structure
 
 ```
